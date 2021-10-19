@@ -8,12 +8,15 @@ public class EmployeeWage {
 	static final int PART_TIME = 2;
 	static final int WAGE_PER_HR = 20;
 	static final int MAX_WORK_DAYS = 20;
+	static final int MAX_WORK_HRS = 100;
 	
 	//method for checking employee attendance 
 	public static void attendance() {
 		int workingHrs = 0;
+		int workDays = 0;
 		
-		for(int i =0; i<MAX_WORK_DAYS; i++) {
+		while (workingHrs <= MAX_WORK_HRS && workDays < MAX_WORK_DAYS) {
+			workDays++;
 		//checking attendance using random function
 			int attendance = (int) Math.floor(Math.random() * 10 % 3);
 		
@@ -30,7 +33,7 @@ public class EmployeeWage {
 					workingHrs += 0;	
 					break;
 			}
-
+			System.out.println("Employee is present for day: " + workDays + " Working Hrs: " + workingHrs);
 		}
 		int wage = workingHrs * WAGE_PER_HR;
 		System.out.println("Empoyee wage for the month is: " + wage);
