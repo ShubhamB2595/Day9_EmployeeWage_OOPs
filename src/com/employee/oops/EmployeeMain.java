@@ -8,6 +8,7 @@ public class EmployeeMain {
 
 		System.out.println("Welcome to Employee Wage Computation Program");
 
+		EmployeeWage.attendance();
 	}
 
 }
