@@ -7,8 +7,22 @@ public class EmployeeWage {
 	static final int FULL_TIME = 1;
 	static final int PART_TIME = 2;
 	
-	//method for checking employee attendance 
-	public static int calculateSalary(String company, int wagePerHr, int maxWorkDays, int maxWorkHrs) {
+	private final String company;
+	private final int wagePerHr;
+	private final int maxWorkDays;
+	private final int maxWorkHrs;
+	private int empWage;
+	
+	EmployeeWage(String company, int wagePerHr, int maxWorkDays, int maxWorkHrs) {
+		this.company = company;
+		this.wagePerHr = wagePerHr;
+		this.maxWorkDays = maxWorkDays;
+		this.maxWorkHrs = maxWorkHrs;
+		
+	}
+
+	//method for calculating employee salary 
+	public int calculateSalary() {
 		
 		int workingHrs = 0, workDays = 0;
 		
@@ -32,9 +46,14 @@ public class EmployeeWage {
 			}
 		//	System.out.println("Employee is present for day: " + workDays + " Working Hrs: " + workingHrs);
 		}
-		int wage = workingHrs * wagePerHr;
-		System.out.println("Total employee wage for company: " + company + " is: " + wage);
-		return wage;
+		empWage = workingHrs * wagePerHr;
+		System.out.println("Total employee wage for company: " + company + " is: " + empWage);
+		return empWage;
+	}
+
+	@Override
+	public String toString() {
+		return "Total employee wage for company: " + company + " is: " + empWage;
 	}
 
 
