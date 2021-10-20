@@ -6,9 +6,9 @@ public class EmployeeMain {
 
 	public static void main(String[] args) {
 		
-		//Refactor of code
-		EmployeeWage.calculateSalary("Sumit");
-
+		//Company wise salary calculation
+		EmployeeWage.calculateSalary("Dmart", 25, 2, 20);
+		EmployeeWage.calculateSalary("EKart", 30, 5, 50);
 	
 	}
 
