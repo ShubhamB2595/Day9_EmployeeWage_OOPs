@@ -5,10 +5,11 @@ package com.employee.oops;
 public class EmployeeMain {
 
 	public static void main(String[] args) {
+		
+		//Refactor of code
+		EmployeeWage.calculateSalary("Sumit");
 
-		System.out.println("Welcome to Employee Wage Computation Program");
-
-		EmployeeWage.attendance();
+	
 	}
 
 }

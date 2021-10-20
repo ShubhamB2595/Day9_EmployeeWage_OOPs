@@ -11,7 +11,7 @@ public class EmployeeWage {
 	static final int MAX_WORK_HRS = 100;
 	
 	//method for checking employee attendance 
-	public static void attendance() {
+	public static int calculateSalary(String name) {
 		int workingHrs = 0;
 		int workDays = 0;
 		
@@ -33,9 +33,12 @@ public class EmployeeWage {
 					workingHrs += 0;	
 					break;
 			}
-			System.out.println("Employee is present for day: " + workDays + " Working Hrs: " + workingHrs);
+		//	System.out.println("Employee is present for day: " + workDays + " Working Hrs: " + workingHrs);
 		}
 		int wage = workingHrs * WAGE_PER_HR;
-		System.out.println("Empoyee wage for the month is: " + wage);
+		System.out.println(name + " Wage for the month is: " + wage);
+		return wage;
 	}
+
+
 }
