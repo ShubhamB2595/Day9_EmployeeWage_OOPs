@@ -1,4 +1,7 @@
 package com.employee.oops;
+
+import java.util.LinkedList;
+
 /*
  * Class for saving all the company data
  */
@@ -8,24 +11,26 @@ public class EmpWageBuilder implements IComputeWage {
 	public static final int FULL_TIME = 1;
 	public static final int PART_TIME = 2;
 	
-	private int numOfCompanies = 0;
-    private EmployeeWage[] employeeWage;
+    private LinkedList<EmployeeWage> employeeWageList;
     
     //Wage Computation method
     public EmpWageBuilder(){
-    	employeeWage = new EmployeeWage[5];
+    	employeeWageList = new LinkedList<>();
     }
     
     public // adding new company data
     void addCompany(String company, int wagePerHr, int maxWorkDays, int maxWorkHrs) {
-    	employeeWage[numOfCompanies] = new EmployeeWage(company, wagePerHr, maxWorkDays, maxWorkHrs);
-        numOfCompanies++;
+    	EmployeeWage employeeWage = new EmployeeWage(company, wagePerHr, maxWorkDays, maxWorkHrs);
+    	employeeWageList.add(employeeWage);
+    	
     }
     
+    
     public void calculateSalary(){
-    	for(int i = 0; i < numOfCompanies; i++){
-            employeeWage[i].setEmpWage(this.calculateSalary(employeeWage[i]));
-            System.out.println(employeeWage[i]);
+    	for(int i = 0; i < employeeWageList.size(); i++){
+    		EmployeeWage employeeWage = employeeWageList.get(i);
+            employeeWage.setEmpWage(this.calculateSalary(employeeWage));
+            System.out.println(employeeWage);
         }
     }
     
