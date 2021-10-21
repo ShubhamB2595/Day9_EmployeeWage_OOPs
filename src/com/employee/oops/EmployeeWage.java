@@ -10,7 +10,6 @@ public class EmployeeWage {
 	public final int maxWorkHrs;
 	public int empWage;
 
-	
 	EmployeeWage(String company, int wagePerHr, int maxWorkDays, int maxWorkHrs) {
 		this.company = company;
 		this.wagePerHr = wagePerHr;

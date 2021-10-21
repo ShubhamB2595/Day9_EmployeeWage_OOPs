@@ -38,28 +38,32 @@ public class EmpWageBuilder implements IComputeWage {
 	//method for calculating employee salary 
 	private int calculateSalary(EmployeeWage employeeWage) {
 		
-		int workingHrs = 0, workDays = 0;
+		int workingHrs = 0, workDays = 0, totalWorkingHrs = 0;
 		while (workingHrs <= employeeWage.maxWorkHrs && workDays < employeeWage.maxWorkDays) {
-			workDays++;
+			
 		//checking attendance using random function
 			int attendance = (int) Math.floor(Math.random() * 10 % 3);
 		
 			switch(attendance) {
 				case FULL_TIME:
-					workingHrs += 8;
+					workingHrs = 8;
 					break;
 	
 				case PART_TIME:
-					workingHrs += 4;
+					workingHrs = 4;
 					break;
 				
 				default:
-					workingHrs += 0;	
+					workingHrs = 0;	
 					break;
 			}
-		//	System.out.println("Employee is present for day: " + workDays + " Working Hrs: " + workingHrs);
+			int dailyWage = workingHrs * employeeWage.wagePerHr; 		
+			System.out.println("Employee is present for day: " + workDays + " Working Hrs: " + workingHrs + " Dailywage: " + dailyWage);
+			totalWorkingHrs += workingHrs;
+			
+			workDays++;
 		}
-		employeeWage.empWage = workingHrs * employeeWage.wagePerHr;
+		employeeWage.empWage = totalWorkingHrs * employeeWage.wagePerHr;
 		System.out.println("Total employee wage for company: " + employeeWage.company + " is: " + employeeWage.empWage);
 		return employeeWage.empWage;
 	}
