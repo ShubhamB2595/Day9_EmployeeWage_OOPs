@@ -2,7 +2,7 @@ package com.employee.oops;
 /*
  * Class for saving all the company data
  */
-public class EmpWageBuilder {
+public class EmpWageBuilder implements IComputeWage {
 
 	//Constants
 	public static final int FULL_TIME = 1;
@@ -16,13 +16,13 @@ public class EmpWageBuilder {
     	employeeWage = new EmployeeWage[5];
     }
     
-    // adding new company data
+    public // adding new company data
     void addCompany(String company, int wagePerHr, int maxWorkDays, int maxWorkHrs) {
     	employeeWage[numOfCompanies] = new EmployeeWage(company, wagePerHr, maxWorkDays, maxWorkHrs);
         numOfCompanies++;
     }
     
-    void calculateSalary(){
+    public void calculateSalary(){
     	for(int i = 0; i < numOfCompanies; i++){
             employeeWage[i].setEmpWage(this.calculateSalary(employeeWage[i]));
             System.out.println(employeeWage[i]);
