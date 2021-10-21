@@ -29,7 +29,7 @@ public class EmpWageBuilder {
         }
     }
     
-
+    
 	//method for calculating employee salary 
 	private int calculateSalary(EmployeeWage employeeWage) {
 		
