@@ -1,6 +1,8 @@
 package com.employee.oops;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /*
  * Class for saving all the company data
@@ -12,20 +14,23 @@ public class EmpWageBuilder implements IComputeWage {
 	public static final int PART_TIME = 2;
 	
     private LinkedList<EmployeeWage> employeeWageList;
+    private Map<String, EmployeeWage> companyToEmpMap;
     
     //Wage Computation method
     public EmpWageBuilder(){
     	employeeWageList = new LinkedList<>();
+    	companyToEmpMap = new HashMap<>();
     }
     
     public // adding new company data
     void addCompany(String company, int wagePerHr, int maxWorkDays, int maxWorkHrs) {
     	EmployeeWage employeeWage = new EmployeeWage(company, wagePerHr, maxWorkDays, maxWorkHrs);
     	employeeWageList.add(employeeWage);
+    	companyToEmpMap.put(company, employeeWage);
     	
     }
     
-    
+    //storing data to array list
     public void calculateSalary(){
     	for(int i = 0; i < employeeWageList.size(); i++){
     		EmployeeWage employeeWage = employeeWageList.get(i);
@@ -34,7 +39,12 @@ public class EmpWageBuilder implements IComputeWage {
         }
     }
     
-    
+	@Override
+	public int companyToEmpMap(String company) {
+		return companyToEmpMap.get(company).empWage;
+		
+	}
+
 	//method for calculating employee salary 
 	private int calculateSalary(EmployeeWage employeeWage) {
 		
